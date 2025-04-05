@@ -6,26 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
     <link rel="stylesheet" href="./index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
     <header class="header">
-        <div class="container">
-            <div class="header__container">
-                <h1 class="header__title">Weather</h1>
-                <form class="header__form" action="./index.js">
-                    <input type="text" class="form__city-name" placeholder="Напишите название города">
-                    <button class="form__button">Посмотреть</button>
-                </form>
-            </div>
+        <div class="header__container">
+            <h1 class="header__title">Weather</h1>
         </div>
     </header>
-    <main class="main">
 
+    <main class="main">
+        <div class="main__container">
+            <div class="main__box">
+                <div class="main__inner">
+                    <form id="weatherForm" class="main__form">
+                        <div class="form__inner">
+                            <input type="text" id="cityInput" class="form__search">
+                        </div>
+                        <button type="submit" class="form__button">Показать</button>
+                    </form>
+                    <ul class="box__weather-data">  
+                        <li class="box__city" id="city"></li>
+                        <li class="box__сelsius" id="celsius"></li>
+                        <li class="box__wind" id="wind"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </main>
-    
+
     <script src="index.js"></script>
+
 </body>
 
 </html>
