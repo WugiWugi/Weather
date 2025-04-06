@@ -25,14 +25,17 @@ async function checkWeather(cityName) {
     const url = `https://api.openweathermap.org/data/2.5/weather?units=metric&q=${cityName}&appid=${apiKey}`
     try {
         const response = await fetch(url)
+        if (!response.ok) {
+            throw new Error('Город не найден!')
+        }
         const data = await response.json()
         city.textContent = data.name
         celsius.textContent = `${Math.floor(data.main.temp)}°C`
         wind.textContent = `Wind: ${Math.floor(data.wind.speed)}km/h`
     } catch (error) {
-        alert(`Простите, но мы не смогли найти место под название "${cityInput.value.trim()}".`)
+        error.message === 'Город не найден!' ? alert(`Простите, но мы не смогли найти место под название "${cityName}".`) : alert('Что-то пошло не так! Пожалуйста, проверьте ваше соединение с интернетом и попробуйте снова.');
+        city.textContent = ''
         celsius.textContent = ''
         wind.textContent = ''
     }
 }
-
